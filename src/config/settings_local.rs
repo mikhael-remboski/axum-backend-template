@@ -19,5 +19,6 @@ pub fn load() -> Config {
                 retry_delay: 1000,
             },
         },
+        forward_headers: vec!["x-trace-id".to_string(), "x-user-id".to_string()],
     }
 }

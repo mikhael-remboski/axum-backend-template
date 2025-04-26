@@ -4,4 +4,5 @@ pub struct Config {
     pub app_env: String,
     pub port: u16,
     pub endpoints: Endpoints,
+    pub forward_headers: Vec<String>,
 }
