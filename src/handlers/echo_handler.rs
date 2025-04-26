@@ -1,9 +1,7 @@
-use crate::config::base::config::Config;
 use crate::errors::app_error::AppError;
-use crate::middlewares::request_context::RequestContext;
 use crate::models::echo::EchoRequestBody;
 use axum::response::IntoResponse;
-use axum::{Extension, Json, extract::rejection::JsonRejection};
+use axum::{Json, extract::rejection::JsonRejection};
 use http::StatusCode;
 use tracing::info;
 
