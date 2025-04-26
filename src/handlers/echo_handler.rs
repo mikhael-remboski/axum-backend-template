@@ -1,3 +1,4 @@
+use crate::config::base::config::Config;
 use crate::errors::app_error::AppError;
 use crate::models::echo::EchoRequestBody;
 use axum::response::IntoResponse;
@@ -11,6 +12,7 @@ pub async fn handle_echo(
         status: StatusCode::BAD_REQUEST,
         message: "Invalid JSON payload".to_string(),
     })?;
-
+    let config = Config::from_env();
+    tracing::info!(config.app_env);
     Ok(Json(body))
 }
