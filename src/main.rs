@@ -1,20 +1,17 @@
-mod app;
+mod api;
+mod common;
 mod config;
-mod errors;
-mod handlers;
-mod middlewares;
-mod models;
-mod routes;
-mod services;
-mod utils;
+mod domain;
+mod infra;
+
 use crate::config::base::config::Config;
-use app::create_app;
+use infra::app::create_app;
 use tokio::net::TcpListener;
 
 #[tokio::main]
 async fn main() {
     dotenvy::dotenv().ok();
-    utils::logger::init();
+    common::logger::init();
 
     let config = Config::from_env();
 
