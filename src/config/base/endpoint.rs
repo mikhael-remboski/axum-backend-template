@@ -2,8 +2,9 @@
 pub struct Endpoint {
     pub host: String,
     pub timeout: u64,
-    pub retries: u16,
-    pub retry_delay: u64,
+    pub retries: u32,
+    pub min_retry_delay: u64,
+    pub max_retry_delay: u64,
 }
 
 #[derive(Debug, Clone)]
