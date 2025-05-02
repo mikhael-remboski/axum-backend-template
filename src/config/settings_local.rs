@@ -3,7 +3,7 @@ use crate::config::base::endpoint::{Endpoint, Endpoints};
 use std::env;
 
 pub fn load() -> Config {
-    dotenvy::from_filename(".env").ok();
+    dotenvy::from_filename("../../.env.example").ok();
 
     Config {
         app_env: "local".to_string(),
