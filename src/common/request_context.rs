@@ -8,7 +8,6 @@ use uuid::Uuid;
 #[derive(Clone, Debug)]
 pub struct RequestContext {
     pub forward_headers: HashMap<String, String>,
-    pub path: String,
 }
 
 pub async fn request_context_middleware(mut req: Request<Body>, next: Next) -> Response<Body> {
@@ -17,10 +16,7 @@ pub async fn request_context_middleware(mut req: Request<Body>, next: Next) -> R
     let trace_id = extract_or_generate_trace_id(&req);
     let forward_headers = extract_forward_headers(&req, &config.forward_headers);
 
-    let ctx = RequestContext {
-        path: req.uri().path().to_string(),
-        forward_headers,
-    };
+    let ctx = RequestContext { forward_headers };
 
     req.extensions_mut().insert(ctx);
 
