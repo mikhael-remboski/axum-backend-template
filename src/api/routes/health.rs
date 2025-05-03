@@ -1,4 +1,4 @@
-use crate::infra::handlers::health_handler::health_check;
+use crate::api::handlers::health_handler::health_check;
 use axum::{Router, routing::get};
 
 pub fn routes() -> Router {

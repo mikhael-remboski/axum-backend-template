@@ -14,7 +14,7 @@ pub fn load() -> Config {
         endpoints: Endpoints {
             cart: Endpoint {
                 host: env::var("CART_SERVICE_HOST").expect("CART_SERVICE_HOST required"),
-                timeout: 5000,
+                timeout: 300,
                 retries: 3,
                 min_retry_delay: 1000,
                 max_retry_delay: 10000,

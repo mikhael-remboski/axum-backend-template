@@ -2,10 +2,10 @@ mod api;
 mod common;
 mod config;
 mod domain;
-mod infra;
+mod external_models;
 
 use crate::config::base::config::Config;
-use infra::app::create_app;
+use api::app::create_app;
 use tokio::net::TcpListener;
 
 #[tokio::main]

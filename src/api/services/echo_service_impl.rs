@@ -1,18 +1,18 @@
-use crate::api::ports::echo_usecase_port::EchoPort;
+use crate::api::services::echo_service::EchoService;
 use crate::config::base::config::Config;
 use tracing::info;
 
-pub struct EchoUseCase {
+pub struct EchoServiceImpl {
     config: Config,
 }
 
-impl EchoUseCase {
+impl EchoServiceImpl {
     pub fn new(config: Config) -> Self {
         Self { config }
     }
 }
 
-impl EchoPort for EchoUseCase {
+impl EchoService for EchoServiceImpl {
     fn echo(&self, message: &str) {
         info!(
             "request received {:?}, and config {:?}",
